@@ -595,8 +595,7 @@ class _DropDownCard<T> extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 4),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                verticalDirection:
-                    isReversed ? VerticalDirection.up : VerticalDirection.down,
+               // verticalDirection: isReversed ? VerticalDirection.up : VerticalDirection.down,
                 children: [
                   _DropDownSearchBar(
                     controller: controller,
