@@ -40,10 +40,10 @@ class CustomSearchBar extends StatelessWidget {
       child: isOutlined
           ? DecoratedBox(
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(8)),
-                border: Border.all(
-                  color: (style?.color ?? Colors.black).withOpacity(0.5),
-                ),
+                border: OutlineInputBorder(
+                  borderSide: const BorderSide(color: Color(0xffE8E9EC), width: 1.4),
+                  borderRadius: BorderRadius.circular(8),
+                )
               ),
               child: _SearchBarTextField(
                 onChangeComplete: onChangeComplete,
