@@ -46,7 +46,7 @@ class CustomSearchBar extends StatelessWidget {
                 focusNode: focusNode,
                 controller: controller,
                 style: style,
-              ),
+              )
           : Card(
               margin: EdgeInsets.zero,
               shape: const RoundedRectangleBorder(
