@@ -123,7 +123,8 @@ class _SearchBarTextField extends StatelessWidget {
           isDense: true,
           border: InputBorder.none,
           hintText: hintText,
-          icon: leadingIcon,
+         hintStyle: TextStyle(color: Color(0xffA1A1AA), fontSize:14 ),
+        //  icon: leadingIcon,
         ),
       ),
     );
