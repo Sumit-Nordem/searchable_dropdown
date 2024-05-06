@@ -641,7 +641,7 @@ class _DropDownSearchBar<T> extends StatelessWidget {
             changeCompletionDelay ?? const Duration(milliseconds: 200),
         hintText: searchHintText ?? 'Search',
         isOutlined: true,
-        leadingIcon: const Icon(Icons.search, size: 24),
+        leadingIcon: const Icon(Icons.search, size: 18),
         onChangeComplete: (value) {
           controller.searchText = value;
           if (controller.items != null) {
