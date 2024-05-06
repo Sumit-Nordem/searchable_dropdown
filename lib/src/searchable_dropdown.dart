@@ -587,6 +587,7 @@ class _DropDownCard<T> extends StatelessWidget {
       children: [
         Flexible(
           child: Card(
+                        color: Colors.white,
             margin: EdgeInsets.zero,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),
