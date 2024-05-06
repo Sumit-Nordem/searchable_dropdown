@@ -56,7 +56,7 @@ class SearchableDropdownController<T> {
     if (response is! List<SearchableDropdownMenuItem<T>>) return;
 
     paginatedItemList.value ??= [];
-    paginatedItemList.value = paginatedItemList.value! + response;
+    paginatedItemList.value =  response;
     if (response.length < requestItemCount) {
       _hasMoreData = false;
     } else {
