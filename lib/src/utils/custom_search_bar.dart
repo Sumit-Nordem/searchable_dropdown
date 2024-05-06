@@ -38,7 +38,14 @@ class CustomSearchBar extends StatelessWidget {
       disableTabEffect: true,
       onTap: myFocusNode.requestFocus,
       child: isOutlined
-          ? _SearchBarTextField(
+          ? DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                border: Border.all(
+                  color: (style?.color ?? Colors.black).withOpacity(0.5),
+                ),
+              ),
+              child: _SearchBarTextField(
                 onChangeComplete: onChangeComplete,
                 changeCompletionDelay: changeCompletionDelay,
                 hintText: hintText,
@@ -46,7 +53,8 @@ class CustomSearchBar extends StatelessWidget {
                 focusNode: focusNode,
                 controller: controller,
                 style: style,
-              )
+              ),
+            )
           : Card(
               margin: EdgeInsets.zero,
               shape: const RoundedRectangleBorder(
@@ -113,12 +121,9 @@ class _SearchBarTextField extends StatelessWidget {
         decoration: InputDecoration(
           contentPadding: EdgeInsets.zero,
           isDense: true,
-          border: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Color(0xffE8E9EC), width: 1.4),
-                  borderRadius: BorderRadius.circular(8),
-                ),
+          border: InputBorder.none,
           hintText: hintText,
-         // icon: leadingIcon,
+          icon: leadingIcon,
         ),
       ),
     );
