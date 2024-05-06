@@ -42,7 +42,7 @@ class CustomSearchBar extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
                 border: Border.all(
-                  color: (style?.color ?? Colors.black).withOpacity(0.5),
+                  color: Color(0xffE8E9EC),
                 ),
               ),
               child: _SearchBarTextField(
