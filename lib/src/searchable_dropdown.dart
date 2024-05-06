@@ -504,7 +504,8 @@ class _DropDown<T> extends StatelessWidget {
           reCalculatePosition =
               (keyboardHeight - reCalculatePosition) + reCalculatePosition;
         }
-        return Padding(
+        return Container(
+           color: Colors.white,
           padding: EdgeInsets.only(
             bottom: reCalculatePosition ?? 0,
             left: isDialogExpanded ? 16 : dropdownGlobalPointBounds?.left ?? 0,
