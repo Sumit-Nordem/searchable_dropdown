@@ -711,7 +711,7 @@ class _DropDownListViewState<T> extends State<_DropDownListView<T>> {
         child,
       ) =>
           itemList == null
-              ? const Center(child: CircularProgressIndicator.adaptive())
+              ? const Center(child: CircularProgressIndicator.adaptive(valueColor: AlwaysStoppedAnimation<Color>(Colors.blue)))
               : itemList.isEmpty
                   ? Padding(
                       padding: const EdgeInsets.all(8),
@@ -752,7 +752,7 @@ class _DropDownListViewState<T> extends State<_DropDownListView<T>> {
                                   if (state == SearchableDropdownStatus.busy) {
                                     return const Center(
                                       child:
-                                          CircularProgressIndicator.adaptive(),
+                                          CircularProgressIndicator.adaptive(valueColor: AlwaysStoppedAnimation<Color>(Colors.blue)),
                                     );
                                   }
                                   return const SizedBox.shrink();
