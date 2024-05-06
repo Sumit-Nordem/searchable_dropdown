@@ -552,18 +552,9 @@ class _DropDownText<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: controller.selectedItem,
-      builder: (context, SearchableDropdownMenuItem<T>? selectedItem, child) =>
-          selectedItem?.child ??
-          (selectedItem?.label!=null || selectedItem?.label!=''
-              ? Text(
-                  selectedItem!.label,
-                  maxLines: 1,
-                  overflow: TextOverflow.fade,
-                )
-              : hintText) ??
-          const SizedBox.shrink(),
+      builder: (context, SearchableDropdownMenuItem<T>? selectedItem, child) =>hintText??SizedBox()
     );
-  }
+  } 
 }
 
 class _DropDownCard<T> extends StatelessWidget {
