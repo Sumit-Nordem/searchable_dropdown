@@ -554,7 +554,7 @@ class _DropDownText<T> extends StatelessWidget {
       valueListenable: controller.selectedItem,
       builder: (context, SearchableDropdownMenuItem<T>? selectedItem, child) =>
           selectedItem?.child ??
-          (selectedItem?.label.isNotEmpty?
+          (selectedItem?.label.isNotEmpty
               ? Text(
                   selectedItem!.label,
                   maxLines: 1,
