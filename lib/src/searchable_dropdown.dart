@@ -726,7 +726,7 @@ class _DropDownListViewState<T> extends State<_DropDownListView<T>> {
                               listViewPadding(isReversed: widget.isReversed),
                           itemCount: itemList.length + 1,
                           shrinkWrap: true,
-                          reverse: widget.isReversed,
+                          //reverse: widget.isReversed,
                           itemBuilder: (context, index) {
                             if (index < itemList.length) {
                               final item = itemList.elementAt(index);
