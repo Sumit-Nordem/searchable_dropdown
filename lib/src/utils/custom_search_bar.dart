@@ -119,7 +119,8 @@ class _SearchBarTextField extends StatelessWidget {
         },
         style: style,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.zero,
+         contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 15, vertical: 8)
           isDense: true,
           border: InputBorder.none,
           hintText: hintText,
