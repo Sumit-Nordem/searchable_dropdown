@@ -474,7 +474,7 @@ class _DropDown<T> extends StatelessWidget {
     if (dialogPositionFromBottom != null) {
       //If dialog couldn't fit the screen, reverse it
       if (dialogPositionFromBottom <= 0) {
-        isReversed = false;
+        isReversed = true;
         final dropdownHeight = dropdownGlobalPointBounds?.height ?? 54;
         dialogPositionFromBottom +=
             alertDialogMaxHeight + dropdownHeight - dialogOffset;
