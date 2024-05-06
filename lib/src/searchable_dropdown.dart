@@ -723,8 +723,7 @@ class _DropDownListViewState<T> extends State<_DropDownListView<T>> {
                       child: NotificationListener(
                         child: ListView.builder(
                           controller: scrollController,
-                          padding:
-                              listViewPadding(isReversed: widget.isReversed),
+                        //  padding: listViewPadding(isReversed: widget.isReversed),
                           itemCount: itemList.length + 1,
                           shrinkWrap: true,
                           //reverse: widget.isReversed,
