@@ -196,7 +196,7 @@ class SearchableDropdown<T> extends StatefulWidget {
     this.changeCompletionDelay,
     this.width,
     this.isDialogExpanded = true,
-    this.isSingleSelected =false;
+    this.isSingleSelected =false,
     this.hasTrailingClearIcon = true,
     this.dialogOffset,
   });
