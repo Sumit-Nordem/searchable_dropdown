@@ -556,12 +556,12 @@ class _DropDownText<T> extends StatelessWidget {
   const _DropDownText({
     required this.controller,
     this.hintText,
-    this.isSingleSelected,
+    this.isSingleSelected=false,
   });
 
   final SearchableDropdownController<T> controller;
   final Widget? hintText;
-  final bool? isSingleSelected;
+  final bool isSingleSelected;
 
   @override
   Widget build(BuildContext context) {
