@@ -342,7 +342,7 @@ class _SearchableDropdownState<T> extends State<SearchableDropdown<T>> {
       isDialogExpanded: widget.isDialogExpanded,
       hasTrailingClearIcon: widget.hasTrailingClearIcon,
       dialogOffset: widget.dialogOffset ?? 35,
-      isSingleSelected:isSingleSelected,
+      isSingleSelected:widget.isSingleSelected,
     );
 
     return SizedBox(
