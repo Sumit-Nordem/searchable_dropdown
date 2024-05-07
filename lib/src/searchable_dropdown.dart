@@ -30,6 +30,7 @@ class SearchableDropdown<T> extends StatefulWidget {
     VoidCallback? onShowDropdown,
     double? width,
     bool isDialogExpanded = true,
+    bool isSingleSelected =false,
     bool hasTrailingClearIcon = true,
     double? dialogOffset,
   }) : this._(
@@ -55,6 +56,7 @@ class SearchableDropdown<T> extends StatefulWidget {
           isDialogExpanded: isDialogExpanded,
           hasTrailingClearIcon: hasTrailingClearIcon,
           dialogOffset: dialogOffset,
+    isSingleSelected:isSingleSelected,
         );
 
   const SearchableDropdown.paginated({
@@ -84,6 +86,7 @@ class SearchableDropdown<T> extends StatefulWidget {
     double? width,
     bool isDialogExpanded = true,
     bool hasTrailingClearIcon = true,
+    bool isSingleSelected =false,
     SearchableDropdownMenuItem<T>? initialValue,
     double? dialogOffset,
   }) : this._(
@@ -111,6 +114,7 @@ class SearchableDropdown<T> extends StatefulWidget {
           hasTrailingClearIcon: hasTrailingClearIcon,
           initialFutureValue: initialValue,
           dialogOffset: dialogOffset,
+    isSingleSelected:isSingleSelected,
         );
 
   const SearchableDropdown.future({
@@ -136,6 +140,7 @@ class SearchableDropdown<T> extends StatefulWidget {
     double? width,
     bool isDialogExpanded = true,
     bool hasTrailingClearIcon = true,
+    bool isSingleSelected =false,
     SearchableDropdownMenuItem<T>? initialValue,
     double? dialogOffset,
   }) : this._(
@@ -162,6 +167,7 @@ class SearchableDropdown<T> extends StatefulWidget {
           hasTrailingClearIcon: hasTrailingClearIcon,
           initialFutureValue: initialValue,
           dialogOffset: dialogOffset,
+    isSingleSelected:isSingleSelected,
         );
 
   const SearchableDropdown._({
@@ -190,6 +196,7 @@ class SearchableDropdown<T> extends StatefulWidget {
     this.changeCompletionDelay,
     this.width,
     this.isDialogExpanded = true,
+    this.isSingleSelected =false;
     this.hasTrailingClearIcon = true,
     this.dialogOffset,
   });
@@ -202,6 +209,8 @@ class SearchableDropdown<T> extends StatefulWidget {
 
   /// Activates clear icon trailing.
   final bool hasTrailingClearIcon;
+
+  final bool isSingleSelected;
 
   /// Height of dropdown's dialog, default: context.deviceHeight*0.3.
   final double? dropDownMaxHeight;
@@ -333,6 +342,7 @@ class _SearchableDropdownState<T> extends State<SearchableDropdown<T>> {
       isDialogExpanded: widget.isDialogExpanded,
       hasTrailingClearIcon: widget.hasTrailingClearIcon,
       dialogOffset: widget.dialogOffset ?? 35,
+      isSingleSelected:isSingleSelected,
     );
 
     return SizedBox(
@@ -366,9 +376,11 @@ class _DropDown<T> extends StatelessWidget {
     this.searchHintText,
     this.changeCompletionDelay,
     this.hasTrailingClearIcon = true,
+    this.isSingleSelected =false,
   });
 
   final bool isEnabled;
+  final bool isSingleSelected;
   final bool isDialogExpanded;
   final bool hasTrailingClearIcon;
   final double? dropDownMaxHeight;
@@ -419,6 +431,7 @@ class _DropDown<T> extends StatelessWidget {
                     child: _DropDownText(
                       controller: controller,
                       hintText: hintText,
+                      isSingleSelected:isSingleSelected,
                     ),
                   ),
                 ],
@@ -543,16 +556,31 @@ class _DropDownText<T> extends StatelessWidget {
   const _DropDownText({
     required this.controller,
     this.hintText,
+    this.isSingleSelected,
   });
 
   final SearchableDropdownController<T> controller;
   final Widget? hintText;
+  final bool? isSingleSelected;
 
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
       valueListenable: controller.selectedItem,
-      builder: (context, SearchableDropdownMenuItem<T>? selectedItem, child) =>hintText??SizedBox()
+      builder: (context, SearchableDropdownMenuItem<T>? selectedItem, child) =>
+      
+      isSingleSelected?
+      (selectedItem?.child ??
+          (selectedItem?.label != null
+              ? Text(
+                  selectedItem!.label,
+                  maxLines: 1,
+                  overflow: TextOverflow.fade,
+                )
+              : hintText) ??
+          const SizedBox.shrink()):
+      
+      hintText??SizedBox()
     );
   } 
 }
